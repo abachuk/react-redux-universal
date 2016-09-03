@@ -1,19 +1,27 @@
 /**
- * THIS IS THE ENTRY POINT FOR THE CLIENT, JUST LIKE server.js IS THE ENTRY POINT FOR THE SERVER.
+ * THIS IS THE ENTRY POINT FOR THE CLIENT
  */
 import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';;
+import ReactDOM from 'react-dom';
+import createStore from './redux/create';
 import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { ReduxAsyncConnect } from 'redux-async-connect';
-import createStore from '../shared/store';
 
-const store = createStore(browserHistory, window.__data);
+import getRoutes from '../shared/routes';
+
+const dest = document.getElementById('content');
+const store = createStore(browserHistory);
+const history = syncHistoryWithStore(browserHistory, store);
 
 const component = (
-  <div>Hello World</div>
+  <Router render={(props) =>
+        <ReduxAsyncConnect {...props} />
+      } history={history}>
+    {getRoutes(store)}
+  </Router>
 );
 
 ReactDOM.render(

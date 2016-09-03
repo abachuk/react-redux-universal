@@ -1,14 +1,14 @@
 import app from './app.js';
+import config from '../config';
 
-const host = process.env.APP_HOST;
-const port = process.env.APP_PORT;
-
-app.listen(3000, (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  //console.log(`Listening at http://${ host }:${ port }`);
-  console.log(`Listening at http://localhost:3000`);
-});
+if (config.port) {
+  app.listen(config.port, (err) => {
+    if (err) {
+      console.error(err);
+    }
+    console.info('----\n==> ✅  %s is running, talking to API server on %s.', config.app.title, config.apiPort);
+    console.info('==> 💻  Open http://%s:%s in a browser to view the app.', config.host, config.port);
+  });
+} else {
+  console.error('==>     ERROR: No PORT environment variable has been specified');
+}
