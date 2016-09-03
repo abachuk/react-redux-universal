@@ -3,7 +3,7 @@ import { match } from 'react-router';
 import configureStore from '../shared/store';
 import createRoutes from '../shared/routes';
 
-// const store = configureStore();
+const store = configureStore();
 // const routes = createRoutes(React);
 // const initialState = store.getState();
 //

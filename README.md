@@ -1,7 +1,7 @@
 #TODO:
 1. Run app locally, with only hello world rendered on server √
   - include API config √
-2. Render "hello world" react component on server strip-loader
+2. Render "hello world" react component server side
 3. Have Hot reloading working locally for server and client strip-loader
   - Make sure prod config is working ok and everything compiles
   - Add webpack dashboard https://github.com/FormidableLabs/webpack-dashboard
