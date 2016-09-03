@@ -8,14 +8,16 @@ import {Provider} from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { ReduxAsyncConnect } from 'redux-async-connect';
+import createStore from '../shared/store';
 
+const store = createStore(browserHistory, window.__data);
 
 const component = (
   <div>Hello World</div>
 );
 
 ReactDOM.render(
-  <Provider key="provider">
+  <Provider store={store} key="provider">
     {component}
   </Provider>,
   dest
