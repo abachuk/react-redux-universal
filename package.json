@@ -92,7 +92,7 @@
     "start-dev": {
       "command": "node ./bin/server.js",
       "env": {
-        "NODE_PATH": "./src",
+        "NODE_PATH": "./server",
         "NODE_ENV": "development",
         "PORT": 3000,
         "APIPORT": 3030
